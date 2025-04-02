@@ -27,7 +27,7 @@ namespace Salimgareevalanguage
             MainFrame.Navigate(new ClientPage());
             Manager.MainFrame = MainFrame;
 
-            
+
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -37,6 +37,11 @@ namespace Salimgareevalanguage
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
+
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
             if (Manager.MainFrame.CanGoBack)
             {
                 BackBtn.Visibility = Visibility.Visible;
@@ -45,6 +50,7 @@ namespace Salimgareevalanguage
             else
             {
                 BackBtn.Visibility = Visibility.Hidden;
+
             }
         }
     }

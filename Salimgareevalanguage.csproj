@@ -281,6 +281,7 @@
     <Resource Include="Клиенты\m99.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\picture.png" />
     <Content Include="SalimgareevaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SalimgareevaModel.Context.cs</LastGenOutput>

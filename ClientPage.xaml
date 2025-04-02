@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Salimgareevalanguage"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ClientPage" FontFamily="Comic Sans MS">
+      Title="ClientPage" FontFamily="Comic Sans MS" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
 
@@ -21,22 +21,24 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="30" >
-            <TextBlock Text="поиск" FontSize="20" ></TextBlock>
-            <TextBox Name="Search" FontSize="20" TextChanged="Search_TextChanged" Width="200" ></TextBox>
-            <TextBlock Text="пол" FontSize="20"></TextBlock>
-            <ComboBox Name="GenderSort" SelectionChanged="GenderSort_SelectionChanged" FontSize="20" Width="200" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="40" >
+            <TextBlock Text="поиск" FontSize="20" VerticalAlignment="Center"></TextBlock>
+            <TextBox Name="Search" FontSize="20" TextChanged="Search_TextChanged" Width="200" Height="30"></TextBox>
+            <TextBlock Text="пол" FontSize="20" VerticalAlignment="Center"></TextBlock>
+            <ComboBox Name="GenderSort" SelectionChanged="GenderSort_SelectionChanged" FontSize="20" Width="200" Height="30" >
                 <TextBlock>Все</TextBlock>
                 <TextBlock>женский</TextBlock>
                 <TextBlock>мужской</TextBlock>
             </ComboBox>
-            <TextBlock Text="Сортировка" FontSize="20"></TextBlock>
-            <ComboBox Name="sort" SelectionChanged="sort_SelectionChanged"  FontSize="20" Width="200" >
+            <TextBlock Text="Сортировка" FontSize="20" VerticalAlignment="Center"></TextBlock>
+            <ComboBox Name="sort" SelectionChanged="sort_SelectionChanged"  FontSize="20" Width="200" Height="30">
                 <TextBlock>нет</TextBlock>
                 <TextBlock>по фамилии от А до я</TextBlock>
                 <TextBlock>по дате последнего посещения</TextBlock>
                 <TextBlock>по количеству посещений</TextBlock>
             </ComboBox>
+
+            <Button Name="AddButton" Content="Добавить клиента" Width="200" Click="AddButton_Click" Height="30"></Button>
         </StackPanel>
         
         <ListView Grid.Row="1" Name="ClientListView" >
@@ -76,8 +78,8 @@
                         
                         <TextBlock Text="{Binding GenderString, StringFormat= Пол: {0}}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
                         <TextBlock Text="{Binding Phone, StringFormat= Телефон: {0}}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
-                        <TextBlock Text="{Binding RegistrationDateStr, StringFormat= Дата регистрации: {0}}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
-                        <TextBlock Text="{Binding LastSession, StringFormat= Дата последнего посещения: {0}}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <TextBlock Text="{Binding RegistrationDateStr, StringFormat= Дата регистрации: {0}}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <TextBlock Text="{Binding LastSession, StringFormat= Дата последнего посещения: {0}}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
 
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -90,9 +92,11 @@
                         </StackPanel>
                         <TextBlock Text="{Binding Email, StringFormat= e-mail: {0}}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
                         <TextBlock Text="{Binding BirthdayDate, StringFormat= Дата рождения: {0}}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
-                        <TextBlock Text="{Binding CountOfSessions, StringFormat= Количество посещений: {0}}" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <TextBlock Text="{Binding CountOfSessions, StringFormat= Количество посещений: {0}}" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
 
-                        <Button Name="DeleteButton" Content="Удалить" Grid.Column="3" Grid.RowSpan="6" Click="DeleteButton_Click"></Button>
+                        <Button Name="DeleteButton" Content="Удалить" Grid.Column="3" Grid.Row="2" Click="DeleteButton_Click"></Button>
+
+                        <Button Name="EditButton" Content="Редактировать" Grid.Column="3" Grid.Row="3" Click="EditButton_Click"></Button>
                         
                     </Grid>
                 </DataTemplate>
